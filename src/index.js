@@ -10,6 +10,9 @@ import path from 'path'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 import { SwapiPeopleResource, SwapiDatabase } from './admin/resources/SwapiResource.js'
 import { SwapiPlanetsResource } from './admin/resources/SwapiPlanetsResource.js'
+import { PokemonResource } from './admin/resources/PokemonResource.js'
+import { HarryPotterResource } from './admin/resources/HarryPotterResource.js'
+import { NarutoResource } from './admin/resources/NarutoResource.js'
 
 // --- COMPONENT LOADER ---
 // AdminJS compila los componentes React con Vite al arrancar.
@@ -19,14 +22,20 @@ import { SwapiPlanetsResource } from './admin/resources/SwapiPlanetsResource.js'
 const componentLoader = new ComponentLoader()
 
 const Components = {
-  ShowCharacter: componentLoader.add('ShowCharacter', path.join(__dirname, 'admin/components/ShowCharacter.jsx')),
-  Dashboard:     componentLoader.add('Dashboard',     path.join(__dirname, 'admin/components/Dashboard.jsx')),
+  ShowCharacter:   componentLoader.add('ShowCharacter',   path.join(__dirname, 'admin/components/ShowCharacter.jsx')),
+  ShowPokemon:     componentLoader.add('ShowPokemon',     path.join(__dirname, 'admin/components/ShowPokemon.jsx')),
+  ShowHarryPotter: componentLoader.add('ShowHarryPotter', path.join(__dirname, 'admin/components/ShowHarryPotter.jsx')),
+  ShowNaruto:      componentLoader.add('ShowNaruto',      path.join(__dirname, 'admin/components/ShowNaruto.jsx')),
+  Dashboard:       componentLoader.add('Dashboard',       path.join(__dirname, 'admin/components/Dashboard.jsx')),
 }
 
 // Cada recurso necesita su propio registerAdapter.
 // SwapiDatabase es el mismo stub para todos los recursos de Star Wars.
 AdminJS.registerAdapter({ Resource: SwapiPeopleResource,  Database: SwapiDatabase })
 AdminJS.registerAdapter({ Resource: SwapiPlanetsResource, Database: SwapiDatabase })
+AdminJS.registerAdapter({ Resource: PokemonResource,      Database: SwapiDatabase })
+AdminJS.registerAdapter({ Resource: HarryPotterResource,  Database: SwapiDatabase })
+AdminJS.registerAdapter({ Resource: NarutoResource,       Database: SwapiDatabase })
 
 const PORT = 3000
 
@@ -58,6 +67,42 @@ const start = async () => {
         }
       },
       { resource: { type: 'swapi-planets' } },
+      {
+        resource: { type: 'pokemon' },
+        options: {
+          actions: {
+            show:       { component: Components.ShowPokemon },
+            new:        { isAccessible: false },
+            edit:       { isAccessible: false },
+            delete:     { isAccessible: false },
+            bulkDelete: { isAccessible: false },
+          }
+        }
+      },
+      {
+        resource: { type: 'harry-potter' },
+        options: {
+          actions: {
+            show:       { component: Components.ShowHarryPotter },
+            new:        { isAccessible: false },
+            edit:       { isAccessible: false },
+            delete:     { isAccessible: false },
+            bulkDelete: { isAccessible: false },
+          }
+        }
+      },
+      {
+        resource: { type: 'naruto' },
+        options: {
+          actions: {
+            show:       { component: Components.ShowNaruto },
+            new:        { isAccessible: false },
+            edit:       { isAccessible: false },
+            delete:     { isAccessible: false },
+            bulkDelete: { isAccessible: false },
+          }
+        }
+      },
     ],
     rootPath: '/admin',
 
