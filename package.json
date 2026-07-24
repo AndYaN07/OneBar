@@ -1,0 +1,29 @@
+{
+  "name": "onebar",
+  "version": "1.0.0",
+  "description": "Learning Project",
+  "homepage": "https://github.com/AndYaN07/OneBar#readme",
+  "bugs": {
+    "url": "https://github.com/AndYaN07/OneBar/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndYaN07/OneBar.git"
+  },
+  "license": "ISC",
+  "author": "Andy",
+  "type": "module",
+  "main": "src/index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@adminjs/express": "^6.1.1",
+    "adminjs": "^7.8.17",
+    "express": "^5.2.1"
+  }
+}
