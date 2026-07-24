@@ -85,10 +85,10 @@ Cada universo tiene su propia key: `onebar_swapi_visited`, `onebar_poke_visited`
 
 ## Pasos de desarrollo
 
-- [ ] 1. Inicializar proyecto Node.js (`npm init`)
-- [ ] 2. Instalar AdminJS + Express (`npm install adminjs @adminjs/express express`)
-- [ ] 3. Servidor básico con AdminJS vacío
-- [ ] 4. Primer recurso custom — SWAPI (listar personajes desde API)
+- [x] 1. Inicializar proyecto Node.js (`npm init`)
+- [x] 2. Instalar AdminJS + Express (`npm install adminjs @adminjs/express express`)
+- [x] 3. Servidor básico con AdminJS vacío
+- [x] 4. Primer recurso custom — SWAPI (listar personajes desde API)
 - [ ] 5. Componente barra de progreso genérico
 - [ ] 6. Integrar localStorage — marcar ítem como visitado
 - [ ] 7. Dashboard custom con barras por universo
