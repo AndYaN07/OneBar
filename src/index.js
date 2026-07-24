@@ -64,6 +64,9 @@ const start = async () => {
     // --- ASPECTO DEL PANEL ---
     // Cambia los valores hex para personalizar colores.
     // Cada universo (StarWars, Pokémon...) tendrá sus propios colores aquí más adelante.
+    assets: {
+      styles: ['/assets/onebar.css'],
+    },
     branding: {
       companyName: 'OneBar',
       logo: false,   // oculta el logo de AdminJS — muestra companyName en su lugar
@@ -79,8 +82,8 @@ const start = async () => {
           // En modo oscuro los grises se invierten: grey100 es el más CLARO
           text:    '#f0f0f0',   // texto base
           grey100: '#f0f0f5',   // texto primario (títulos, labels)
-          grey80:  '#c8c8dc',   // texto secundario
-          grey60:  '#9090b0',   // placeholders, hints
+          grey80:  '#d0d0ee',   // texto secundario
+          grey60:  '#b8b8d8',   // placeholders, hints — incluye "NAVIGATION" sidebar
           grey40:  '#4a4a6a',   // bordes, separadores sutiles
           grey20:  '#252540',   // fondos alternativos (chips, badges bg)
           // ── Bordes ──────────────────────────────────────
@@ -116,6 +119,9 @@ const start = async () => {
   // --- EXPRESS ---
   // Express es el servidor web. AdminJS vive dentro de él como una ruta más.
   const app = express()
+
+  // Sirve el CSS custom en /assets/onebar.css
+  app.use('/assets', express.static(path.join(__dirname, 'admin/styles')))
 
   // Monta el panel de AdminJS en la ruta /admin
   app.use(admin.options.rootPath, adminRouter)

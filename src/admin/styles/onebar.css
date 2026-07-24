@@ -1,0 +1,187 @@
+/* ═══════════════════════════════════════════════════════════
+   OneBar — Estilos de componentes custom
+   Los colores de universo se pasan como CSS custom properties
+   desde React (style={{ '--card-bg': ..., '--card-fill': ... }})
+   y el CSS los consume en cascada con var().
+   ══════════════════════════════════════════════════════════ */
+
+/* ── Tokens globales ───────────────────────────────────── */
+:root {
+  --ob-font:        'Segoe UI', system-ui, -apple-system, sans-serif;
+  --ob-radius-md:   14px;
+  --ob-radius-full: 99px;
+  --ob-bar-h:       16px;
+  --ob-ease:        0.65s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ══════════════════════════════════════════════════════════
+   DASHBOARD
+   ══════════════════════════════════════════════════════════ */
+
+.ob-dashboard {
+  padding:     16px 44px 52px;
+  max-width:   780px;
+  margin:      0 auto;
+  font-family: var(--ob-font);
+}
+
+.ob-dashboard__title {
+  font-size:      2.4rem;
+  font-weight:    800;
+  letter-spacing: -1px;
+  margin:         0 0 8px;
+  color:          #f0f0ff !important;
+}
+
+.ob-dashboard__subtitle {
+  font-size:      0.9rem;
+  color:          #5555aa;
+  margin:         0 0 52px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ob-dashboard__footer {
+  color:          #333355;
+  font-size:      0.75rem;
+  margin-top:     52px;
+  text-align:     center;
+  letter-spacing: 0.04em;
+}
+
+/* ══════════════════════════════════════════════════════════
+   UNIVERSE CARD — compartida por Dashboard y Show
+   El color de fondo, acento y texto vienen de:
+     --card-bg   → fondo oscuro del universo
+     --card-fill → color acento (barra + títulos)
+     --card-text → alias de fill (títulos y porcentaje)
+     --card-sub  → texto secundario / contador
+     --card-glow → halo de luz de la barra
+   ══════════════════════════════════════════════════════════ */
+
+.ob-card {
+  background:    var(--card-bg, #14142a);
+  border-radius: var(--ob-radius-md);
+  padding:       26px 30px;
+  margin-bottom: 16px;
+  border:        1px solid rgba(255, 255, 255, 0.1);
+  transition:    transform 0.2s ease, box-shadow 0.25s ease;
+}
+
+.ob-card:hover {
+  transform:  translateY(-3px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+}
+
+.ob-card__header {
+  display:         flex;
+  justify-content: space-between;
+  align-items:     baseline;
+  margin-bottom:   4px;
+}
+
+.ob-card__title {
+  font-size:      1.05rem;
+  font-weight:    700;
+  color:          var(--card-text, #ffffff);
+  letter-spacing: 0.01em;
+}
+
+/* Porcentaje grande a la derecha */
+.ob-card__percent {
+  font-size:            1.8rem;
+  font-weight:          800;
+  color:                var(--card-text, #ffffff);
+  font-variant-numeric: tabular-nums;
+  letter-spacing:       -1.5px;
+  line-height:          1;
+}
+
+.ob-card__count {
+  font-size:      0.8rem;
+  color:          var(--card-sub, #7777aa);
+  margin:         6px 0 18px;
+  letter-spacing: 0.02em;
+}
+
+/* ══════════════════════════════════════════════════════════
+   PROGRESS BAR
+   ══════════════════════════════════════════════════════════ */
+
+.ob-bar {
+  background:    rgba(255, 255, 255, 0.06);
+  border-radius: var(--ob-radius-full);
+  height:        var(--ob-bar-h);
+  overflow:      hidden;
+  position:      relative;
+}
+
+.ob-bar__fill {
+  height:        100%;
+  border-radius: var(--ob-radius-full);
+  background:    var(--card-fill, #ffffff);
+  /* Halo de color del universo — visible incluso sin hover */
+  box-shadow:    0 0 14px var(--card-glow, rgba(255, 255, 255, 0.1));
+  transition:    width var(--ob-ease);
+  position:      relative;
+  overflow:      hidden;
+}
+
+/*
+  Shine: al hacer hover sobre .ob-bar se inserta un destello
+  que barre de izquierda a derecha sobre el fill.
+  Funciona via ::after en el fill con una animación de transform.
+*/
+.ob-bar:hover .ob-bar__fill::after {
+  content:  '';
+  position: absolute;
+  inset:    0;
+  background: linear-gradient(
+    90deg,
+    transparent             0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent             100%
+  );
+  animation: ob-shine 0.65s ease forwards;
+}
+
+@keyframes ob-shine {
+  from { transform: translateX(-150%); }
+  to   { transform: translateX(220%);  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   SHOW / VISTA DE DETALLE
+   ══════════════════════════════════════════════════════════ */
+
+.ob-show {
+  padding:     36px 44px;
+  font-family: var(--ob-font);
+  max-width:   700px;
+}
+
+.ob-show__name {
+  font-size:      2.1rem;
+  font-weight:    800;
+  letter-spacing: -0.5px;
+  margin:         0 0 24px;
+}
+
+.ob-show__stats {
+  display:        flex;
+  flex-direction: column;
+  gap:            10px;
+  font-size:      0.93rem;
+  color:          #8888aa;
+  margin-bottom:  36px;
+}
+
+.ob-show__stats p {
+  margin: 0;
+}
+
+.ob-show__stats strong {
+  color:        #ccccee;
+  margin-right: 6px;
+  font-weight:  600;
+}
