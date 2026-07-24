@@ -29,7 +29,7 @@ Cada universo tiene su propia identidad visual: colores, iconos y estilo acorde 
 | Star Wars | [SWAPI](https://swapi.dev/) |
 | Pokémon | [PokéAPI](https://pokeapi.co/) |
 | Harry Potter | [HP-API](https://hp-api.onrender.com/) |
-| Naruto | [NarutoDB](https://narutodb.xyz/) |
+| Naruto | [Dattebayo API](https://api-dattebayo.vercel.app/) |
 
 ---
 

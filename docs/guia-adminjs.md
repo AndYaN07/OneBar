@@ -74,12 +74,12 @@ Cada universo tiene su propia key: `onebar_swapi_visited`, `onebar_poke_visited`
 
 ## Universos y temática visual
 
-| Universo | Key localStorage | Colores | Icono |
-|---|---|---|---|
-| Star Wars | `onebar_swapi_visited` | Negro / Amarillo | ⚔️ |
-| Pokémon | `onebar_poke_visited` | Rojo / Blanco | ⭕ |
-| Harry Potter | `onebar_hp_visited` | Granate / Dorado | ⚡ |
-| Naruto | `onebar_naruto_visited` | Naranja / Rojo | 🌀 |
+| Universo | Key localStorage | Colores | Icono | API |
+|---|---|---|---|---|
+| Star Wars | `onebar_swapi_visited` | Negro / Amarillo | ⚔️ | https://swapi.dev/api/ |
+| Pokémon | `onebar_poke_visited` | Rojo / Blanco | ⭕ | https://pokeapi.co/api/v2/ |
+| Harry Potter | `onebar_hp_visited` | Granate / Dorado | ⚡ | https://hp-api.onrender.com/ |
+| Naruto | `onebar_naruto_visited` | Naranja / Rojo | 🌀 | https://api-dattebayo.vercel.app/ |
 
 ---
 
@@ -97,6 +97,16 @@ Cada universo tiene su propia key: `onebar_swapi_visited`, `onebar_poke_visited`
 
 ---
 
+## Mejoras futuras
+
+Ideas anotadas para cuando la base esté funcionando:
+
+- **Imágenes de personajes** — mostrar imagen del personaje en la vista de detalle del recurso.
+- **Vista tipo ficha** — reemplazar la vista por defecto de AdminJS con un componente tipo "web de consulta": imagen, stats, descripción organizada.
+- **Edición local** — permitir añadir notas o datos propios a cada personaje, guardados en `localStorage`. Sin alterar los datos de la API.
+
+---
+
 ## Decisiones tomadas
 
 | Fecha | Decisión | Motivo |
@@ -104,4 +114,4 @@ Cada universo tiene su propia key: `onebar_swapi_visited`, `onebar_poke_visited`
 | 2026-07-24 | Sin base de datos | Proyecto de aprendizaje, reducir complejidad inicial |
 | 2026-07-24 | localStorage para progreso | Simple, sin servidor extra, suficiente para uso personal |
 | 2026-07-24 | JavaScript (no TypeScript) | Reducir curva de aprendizaje al arrancar |
-| 2026-07-24 | Opción A — repurpose repo | El código Flutter era mínimo, el concepto "barra" se mantiene |
+| 2026-07-24 | Repurpose repo | El código Flutter era mínimo, el concepto "barra" se mantiene |
