@@ -84,7 +84,7 @@ const start = async () => {
           grey100: '#f0f0f5',   // texto primario (títulos, labels)
           grey80:  '#d0d0ee',   // texto secundario
           grey60:  '#b8b8d8',   // placeholders, hints — incluye "NAVIGATION" sidebar
-          grey40:  '#4a4a6a',   // bordes, separadores sutiles
+          grey40:  '#8888bb',   // labels sidebar ("NAVIGATION"), separadores
           grey20:  '#252540',   // fondos alternativos (chips, badges bg)
           // ── Bordes ──────────────────────────────────────
           border:      '#2a2a4a',

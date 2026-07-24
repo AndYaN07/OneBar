@@ -39,7 +39,9 @@ const Dashboard = () => (
     <h1 className="ob-dashboard__title">OneBar</h1>
     <p className="ob-dashboard__subtitle">Tu progreso en cada universo</p>
 
-    {UNIVERSES.map(u => <OneBar key={u.key} universe={u} />)}
+    <div className="ob-grid">
+      {UNIVERSES.map(u => <OneBar key={u.key} universe={u} />)}
+    </div>
 
     <p className="ob-dashboard__footer">
       El progreso se guarda en este navegador.
