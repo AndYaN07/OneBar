@@ -1,31 +1,53 @@
-# OneBar ⏳
+# OneBar
 
-OneBar is an early-stage personal project that explores how time can be represented using a single progress bar.
+Panel de administración personal construido con **AdminJS** y **JavaScript (Node.js)**.
 
-The app allows users to define a start date and an end date, visually displaying the progress of time between them. The project is conceived as both a **cross-platform Flutter practice** and a **UX design exercise**, with a strong focus on simplicity, clarity, and minimalism.
+Explora universos de APIs externas — cada colección muestra una barra de progreso visual y temática según vas descubriendo personajes, películas o datos.
 
-At this initial stage, the project does not yet have a defined structure or finalized features. The main goal is to explore the concept, validate the idea, and experiment with visual approaches.
+---
+
+## Concepto
+
+**OneBar** = una barra por universo.  
+Cada API externa (Star Wars, Pokémon, Harry Potter, Naruto…) tiene su propia barra que refleja cuánto has explorado de esa colección. El progreso se guarda en el navegador (`localStorage`).
+
+Cada universo tiene su propia identidad visual: colores, iconos y estilo acorde a la temática.
 
 ---
 
 ## Tech Stack
 
-- **Flutter**
-- **Dart**
+- **Node.js** + **Express**
+- **AdminJS** — panel de administración
+- **React** (componentes custom de AdminJS)
+- **localStorage** — persistencia del progreso en cliente
+
+## APIs externas
+
+| Universo | API |
+|---|---|
+| Star Wars | [SWAPI](https://swapi.dev/) |
+| Pokémon | [PokéAPI](https://pokeapi.co/) |
+| Harry Potter | [HP-API](https://hp-api.onrender.com/) |
+| Naruto | [NarutoDB](https://narutodb.xyz/) |
 
 ---
 
-## Project Status
+## Estado
 
-🚧 Early development / concept exploration  
-Features, structure, and design are subject to change.
+🚧 En desarrollo activo — proyecto de aprendizaje personal.
+
+## Documentación
+
+Ver carpeta [`/docs`](./docs/) para guías de desarrollo y decisiones de arquitectura.
 
 ---
 
-## Español
+## Arrancar el proyecto
 
-OneBar es un proyecto personal en fase inicial cuyo objetivo es explorar la representación del tiempo mediante una única barra de progreso.
+```bash
+npm install
+node src/index.js
+```
 
-La aplicación permite definir una fecha de inicio y una fecha final, mostrando de forma visual el progreso del tiempo transcurrido entre ambas. El proyecto se plantea como una práctica de desarrollo **multiplataforma con Flutter** y como un ejercicio de **diseño de experiencia de usuario (UX)**, con un enfoque en la simplicidad, la claridad y el minimalismo.
-
-En este punto inicial, el proyecto no cuenta todavía con una estructura definida ni funcionalidades cerradas. El foco está en la exploración del concepto, la validación de la idea y la experimentación visual.
+Abrir `http://localhost:3000/admin`
