@@ -89,9 +89,9 @@ Cada universo tiene su propia key: `onebar_swapi_visited`, `onebar_poke_visited`
 - [x] 2. Instalar AdminJS + Express (`npm install adminjs @adminjs/express express`)
 - [x] 3. Servidor básico con AdminJS vacío
 - [x] 4. Primer recurso custom — SWAPI (listar personajes desde API)
-- [ ] 5. Componente barra de progreso genérico
-- [ ] 6. Integrar localStorage — marcar ítem como visitado
-- [ ] 7. Dashboard custom con barras por universo
+- [x] 5. Componente barra de progreso genérico
+- [x] 6. Integrar localStorage — marcar ítem como visitado
+- [x] 7. Dashboard custom con barras por universo
 - [ ] 8. Estilizar cada barra según su temática
 - [ ] 9. Añadir resto de APIs (Pokémon, HP, Naruto)
 
@@ -101,6 +101,7 @@ Cada universo tiene su propia key: `onebar_swapi_visited`, `onebar_poke_visited`
 
 Ideas anotadas para cuando la base esté funcionando:
 
+- **HomeWorld — nombre completo** — actualmente muestra el ID del planeta (solución rápida). La mejora completa es cruzar datos: al cargar People, construir un mapa `{ url → nombre }` con los datos de Planets y sustituir la URL por el nombre real (`Tatooine`, `Alderaan`…). Requiere cargar Planets antes que People o compartir caché entre recursos.
 - **Imágenes de personajes** — mostrar imagen del personaje en la vista de detalle del recurso.
 - **Vista tipo ficha** — reemplazar la vista por defecto de AdminJS con un componente tipo "web de consulta": imagen, stats, descripción organizada.
 - **Edición local** — permitir añadir notas o datos propios a cada personaje, guardados en `localStorage`. Sin alterar los datos de la API.
@@ -111,6 +112,7 @@ Ideas anotadas para cuando la base esté funcionando:
 
 | Fecha | Decisión | Motivo |
 |---|---|---|
+| 2026-07-24 | `admin.watch()` obligatorio para componentes custom | AdminJS no compila ComponentLoader automáticamente — hay que llamarlo explícitamente antes de buildRouter |
 | 2026-07-24 | Sin base de datos | Proyecto de aprendizaje, reducir complejidad inicial |
 | 2026-07-24 | localStorage para progreso | Simple, sin servidor extra, suficiente para uso personal |
 | 2026-07-24 | JavaScript (no TypeScript) | Reducir curva de aprendizaje al arrancar |
